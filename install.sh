@@ -17,8 +17,7 @@ crontab -l | { cat; echo "
 0 4 * * * /usr/bin/phpmyadmin_update.sh"; } | crontab -
 
 # 
-cat >/usr/bin/phpmyadmin_auto_update.sh << 
-EOL
+cat >/usr/bin/phpmyadmin_auto_update.sh << EOL
 #!/bin/bash  
 
 # Copyright Mason Chase (sid@moontius.com)
@@ -28,10 +27,10 @@ EOL
 set -x
 
 
-# must have beginning slash and trailing slash
+# Must start and end with slash
 PHPMYADMIN_FULL_PATH=/var/www/
 
-# must not have beginning or trailing slash
+# Must not contain slash
 PHPMYADMIN_FOLDER_NAME=phpmyadmin
 
 #  Download phpmyadmin download page
@@ -42,16 +41,16 @@ echo \$MYSQL_URL
 /usr/bin/wget \`echo \$MYSQL_URL\` -O /tmp/phpmyadmin.7z
 /usr/bin/7za x /tmp/phpmyadmin.7z -o\`echo \$PHPMYADMIN_FULL_PATH\`
 
-# move old php directory to a backup folder
+# Move old php directory to a backup folder
 mv \`echo \$PHPMYADMIN_FULL_PATH\`\`echo \$PHPMYADMIN_FOLDER_NAME\` \`echo \$PHPMYADMIN_FULL_PATH\`\`echo \$PHPMYADMIN_FOLDER_NAME\`_outdated
 
-# move new phpmyadmin to designated path and rename its folder name
+# Move new phpmyadmin to designated path and rename its folder name
 mv \`echo \$PHPMYADMIN_FULL_PATH\`phpMyAdmin-*-english \`echo \$PHPMYADMIN_FULL_PATH\`\`echo \$PHPMYADMIN_FOLDER_NAME\`
 
-# move configuration file from old phpmyadmin to new installation
+# Move configuration file from old phpmyadmin to new installation
 mv \`echo \$PHPMYADMIN_FULL_PATH\`\`echo \$PHPMYADMIN_FOLDER_NAME\`_outdated/config.inc.php \`echo \$PHPMYADMIN_FULL_PATH\`\`echo \$PHPMYADMIN_FOLDER_NAME\`
 
-# remove old installation (Optional)
+# Remove old installation (Optional)
 rm \`echo \$PHPMYADMIN_FULL_PATH\`\`echo \$PHPMYADMIN_FOLDER_NAME\`_outdated -rf
 EOL
 
