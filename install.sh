@@ -36,10 +36,10 @@ PHPMYADMIN_FOLDER_NAME=phpmyadmin
 #  Download phpmyadmin download page
 /usr/bin/wget https://www.phpmyadmin.net/downloads/ -O /tmp/phpmyadmin-download.html
 # Map Latest phpmyadmin English with 7-zip format using regex
-MYSQL_URL=\$(cat /tmp/phpmyadmin-download.html|grep -e "<a href=\"https://files.phpmyadmin.net/phpMyAdmin/4.[5-9].[0-9,\.]*/phpMyAdmin-4.*-english.7z"|sed -n -e 's/.*<td><a href="\(.*\)" class=".*/\1/p')
+MYSQL_URL=\$(cat /tmp/phpmyadmin-download.html|grep -e "<a href=\"https://files.phpmyadmin.net/phpMyAdmin/4.[5-9].[0-9,\.]*/phpMyAdmin-4.*-english.tar.xz"|sed -n -e 's/.*<td><a href="\(.*\)" class=".*/\1/p')
 echo \$MYSQL_URL
-/usr/bin/wget \`echo \$MYSQL_URL\` -O /tmp/phpmyadmin.7z
-/usr/bin/7za x /tmp/phpmyadmin.7z -o\`echo \$PHPMYADMIN_FULL_PATH\`
+/usr/bin/wget \`echo \$MYSQL_URL\` -O /tmp/phpmyadmin.tar.xz
+/usr/bin/tar -xJf /tmp/phpmyadmin.tar.xz -o\`echo \$PHPMYADMIN_FULL_PATH\`
 
 # Move old php directory to a backup folder
 mv \`echo \$PHPMYADMIN_FULL_PATH\`\`echo \$PHPMYADMIN_FOLDER_NAME\` \`echo \$PHPMYADMIN_FULL_PATH\`\`echo \$PHPMYADMIN_FOLDER_NAME\`_outdated
