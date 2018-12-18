@@ -1,5 +1,5 @@
 #!/bin/bash  
-# Copyright Mason Chase (sid@moontius.com)
+# Copyright Mason Chase (mc@maxtld.com)
 # DISCLAIMER: install.sh SCRIPT AND ITS CONTENT ARE DESIGNED AND TESTED UNDER CENTOS/FEDORA/REDHAT AND YOU MAY USE IT AT YOUR RISK ONLY.
 
 # Download latest rpmforge to get 7zip in our system
