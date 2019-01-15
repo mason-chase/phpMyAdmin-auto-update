@@ -1,6 +1,8 @@
 #!/bin/bash  
 # Author: Mason Chase (mc@maxtld.com)
-# DISCLAIMER: install.sh SCRIPT AND ITS CONTENT ARE DESIGNED AND TESTED UNDER CENTOS/FEDORA/REDHAT AND YOU MAY USE IT AT YOUR RISK ONLY.
+# DISCLAIMER: install.sh SCRIPT AND ITS CONTENT ARE DESIGNED
+# AND TESTED UNDER CENTOS/FEDORA/REDHAT AND YOU MAY USE IT
+# AT YOUR RISK ONLY.
 
 # Download latest rpmforge to get 7zip in our system
 wget http://pkgs.repoforge.org/rpmforge-release/rpmforge-release-0.5.3-1.el6.rf.x86_64.rpm -O /usr/src/rpmforge-release-0.5.3-1.el6.rf.x86_64.rpm
@@ -20,8 +22,10 @@ crontab -l | { cat; echo "
 cat >/usr/bin/phpmyadmin_auto_update.sh << EOL
 #!/bin/bash  
 
-# Copyright Mason Chase (sid@moontius.com)
-# DISCLAIMER: install.sh SCRIPT AND ITS CONTENT ARE DESIGNED AND TESTED UNDER CENTOS/FEDORA/REDHAT AND YOU MAY USE IT AT YOUR RISK ONLY.
+# Author: Mason Chase (sid@moontius.com)
+# DISCLAIMER: install.sh SCRIPT AND ITS CONTENT ARE DESIGNED
+# AND TESTED UNDER CENTOS/FEDORA/REDHAT AND YOU MAY USE IT
+# AT YOUR RISK ONLY.
 
 #echo on
 set -x
